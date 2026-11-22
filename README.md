@@ -9,7 +9,7 @@ Scanner de código aberto para auditoria de segurança em aplicações desenvolv
 
 ## Aplicação Web Interativa
 
-Acesse a ferramenta online e audite seu pipeline em tempo real:
+Acesse a ferramenta online e audite em tempo real:
 
 - [https://tavardt-portugal.github.io/vibe-coding-security-scanner/](https://tavardt-portugal.github.io/vibe-coding-security-scanner/)
 
