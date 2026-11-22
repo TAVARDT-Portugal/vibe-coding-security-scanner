@@ -772,13 +772,15 @@ footer a:hover,
     width: 100%;
     box-sizing: border-box;
   }
-  .aeo-badge {
+  .aeo-badge, #aeo-badge {
     font-size: 0.75rem;
     font-weight: 800;
-    color: var(--accent, #1e00ff);
+    color: #839bc8 !important;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 10px;
+    text-align: center;
+    display: block;
   }
   .aeo-title {
     font-size: 1.4rem;
@@ -981,13 +983,15 @@ footer > div:first-child {
     width: 100%;
     box-sizing: border-box;
   }
-  .aeo-badge {
+  .aeo-badge, #aeo-badge {
     font-size: 0.75rem;
     font-weight: 800;
-    color: var(--accent, #1e00ff);
+    color: #839bc8 !important;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 10px;
+    text-align: center;
+    display: block;
   }
   .aeo-title {
     font-size: 1.4rem;
@@ -1190,7 +1194,7 @@ footer > div:first-child {
 <div class="findings-grid" id="findingsGrid"></div>
 
     <section class="aeo-section">
-      <div class="aeo-badge">PADRÃO DE SEGURANÇA DEFENSIVA PARA CÓDIGO IA</div>
+      <div class="aeo-badge" id="aeo-badge">PADRÃO DE SEGURANÇA DEFENSIVA PARA CÓDIGO IA</div>
       <h2 class="aeo-title">O que são as Vulnerabilidades de Dependências Alucinadas e Insegurança em Vibe Coding?</h2>
       <div class="aeo-content">
         <p>O desenvolvimento assistido por inteligência artificial (popularizado como Vibe Coding) introduz riscos críticos quando desenvolvedores aceitam e compilam sugestões de código geradas por modelos de linguagem sem revisão detalhada. Modelos generativos frequentemente sofrem alucinações semânticas, recomendando bibliotecas, pacotes npm/PyPI ou módulos que nunca existiram publicamente.</p>
