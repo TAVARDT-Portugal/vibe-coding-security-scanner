@@ -1,21 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="pt-PT">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guia de Hardening &amp; Mitigação: Aplicações Vibe Coding &amp; IA | TAVARDT Portugal</title>
-  <meta name="description" content="Guia técnico corporativo de arquitetura defensiva, proteção contra vazamento de variáveis de ambiente, sanitização de sourcemaps e ferramenta CLI para auditoria de aplicações Vibe Coding.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://tavardt-portugal.github.io/vibe-coding-security-scanner/">
-  <link rel="icon" type="image/x-icon" href="./favicon.ico">
-  <link rel="shortcut icon" href="./favicon.ico">
-  
-  <meta property="og:title" content="Guia de Hardening &amp; Mitigação: Aplicações Vibe Coding &amp; IA | TAVARDT Portugal">
-  <meta property="og:description" content="Referência técnica contra vazamento de variáveis de ambiente, sourcemaps públicos e ausência de Row Level Security (RLS) em aplicações criadas com IA.">
-  <meta property="og:url" content="https://tavardt-portugal.github.io/vibe-coding-security-scanner/">
-  <meta property="og:type" content="website">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guia de Hardening &amp; Mitigação: Aplicações Vibe Coding &amp; IA | TAVARDT Portugal</title>
+<meta content="Guia técnico corporativo de arquitetura defensiva, proteção contra vazamento de variáveis de ambiente, sanitização de sourcemaps e ferramenta CLI para auditoria de aplicações Vibe Coding." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://tavardt-portugal.github.io/vibe-coding-security-scanner/" rel="canonical"/>
+<link href="./favicon.ico" rel="icon" type="image/x-icon"/>
 
-  <script type="application/ld+json">
+<meta content="Guia de Hardening &amp; Mitigação: Aplicações Vibe Coding &amp; IA | TAVARDT Portugal" property="og:title"/>
+<meta content="Referência técnica contra vazamento de variáveis de ambiente, sourcemaps públicos e ausência de Row Level Security (RLS) em aplicações criadas com IA." property="og:description"/>
+<meta content="https://tavardt-portugal.github.io/vibe-coding-security-scanner/" property="og:url"/>
+<meta content="website" property="og:type"/>
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -67,16 +66,12 @@
     ]
   }
   </script>
-
-  
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-5B6QSTN5');</script>
-  
-
-  <style>
+<style>
     body {
       margin: 0;
       padding: 0;
@@ -715,235 +710,209 @@
   </style>
 </head>
 <body>
-  
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5B6QSTN5"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  
-
-  <header class="tavardt-header">
-    <div class="tavardt-header-inner">
-      <a class="tavardt-brand" href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">
-        <span class="tavardt-logo-text">TAVARDT<span class="tavardt-brand-dot">.</span></span>
-      </a>
-      <nav class="tavardt-nav">
-        <a class="tavardt-nav-link" href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">Portal</a>
-        <a class="tavardt-nav-link" href="https://tools.tavardt.com/pt/" rel="noopener" target="_blank">Ferramentas</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="tavardt-main">
-    <section class="hero-section">
-      <h1 class="hero-title">Mitigação de Riscos em Vibe Coding &amp; Hardening de Aplicações IA</h1>
-      <p class="hero-subtitle">Guia definitivo de arquitetura defensiva, imunização de bundles JavaScript, políticas de Row Level Security (RLS) e ferramental CLI para auditoria de segurança em aplicações desenvolvidas com IA.</p>
-    </section>
-
-    <section class="cli-hero-box">
-      <div class="cli-header">
-        <div class="cli-dots">
-          <span class="cli-dot red"></span>
-          <span class="cli-dot yellow"></span>
-          <span class="cli-dot green"></span>
-          <span class="cli-title">Testes em terminal Local CLI</span>
-        </div>
-        <button type="button" class="cli-copy-btn" id="btn-copy-cli" onclick="copyCliCommand()">Copiar</button>
-      </div>
-      <div class="cli-body">
-        <p class="cli-desc">Para inspecionar aplicações reais de forma determinística, sem bloqueios de sandbox ou políticas de CORS do navegador, execute o utilitário oficial em Python diretamente no seu terminal ou esteira de CI/CD:</p>
-        <div class="cli-code-terminal" id="cli-terminal-code"># 1. Obter o script de auditoria no repositório oficial
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5B6QSTN5" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<header class="tavardt-header">
+<div class="tavardt-header-inner">
+<a class="tavardt-brand" href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">
+<span class="tavardt-logo-text">TAVARDT<span class="tavardt-brand-dot">.</span></span>
+</a>
+<nav class="tavardt-nav">
+<a class="tavardt-nav-link" href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">Portal</a>
+<a class="tavardt-nav-link" href="https://tools.tavardt.com/pt/" rel="noopener" target="_blank">Ferramentas</a>
+</nav>
+</div>
+</header>
+<main class="tavardt-main">
+<section class="hero-section">
+<h1 class="hero-title">Mitigação de Riscos em Vibe Coding &amp; Hardening de Aplicações IA</h1>
+<p class="hero-subtitle">Guia definitivo de arquitetura defensiva, imunização de bundles JavaScript, políticas de Row Level Security (RLS) e ferramental CLI para auditoria de segurança em aplicações desenvolvidas com IA.</p>
+</section>
+<section class="cli-hero-box">
+<div class="cli-header">
+<div class="cli-dots">
+<span class="cli-dot red"></span>
+<span class="cli-dot yellow"></span>
+<span class="cli-dot green"></span>
+<span class="cli-title">Testes em terminal Local CLI</span>
+</div>
+<button class="cli-copy-btn" id="btn-copy-cli" onclick="copyCliCommand()" type="button">Copiar</button>
+</div>
+<div class="cli-body">
+<p class="cli-desc">Para inspecionar aplicações reais de forma determinística, sem bloqueios de sandbox ou políticas de CORS do navegador, execute o utilitário oficial em Python diretamente no seu terminal ou esteira de CI/CD:</p>
+<div class="cli-code-terminal" id="cli-terminal-code"># 1. Obter o script de auditoria no repositório oficial
 curl -sO https://raw.githubusercontent.com/TAVARDT-Portugal/vibe-coding-security-scanner/main/audit_vibe_security.py
 
 # 2. Executar auditoria direta contra a sua aplicação
 python audit_vibe_security.py https://sua-aplicacao.com</div>
-        <div class="cli-tags">
-          <span class="cli-tag"><strong>Inspeção Determinística:</strong> Bundles, Sourcemaps e Headers</span>
-          <span class="cli-tag"><strong>Proteção de Segredos:</strong> Detecta chaves OpenAI, Supabase e AWS</span>
-          <span class="cli-tag"><strong>Zero CORS:</strong> Sockets nativos no terminal do desenvolvedor</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="matrix-section">
-      <h2 class="matrix-title">Diagnóstico Arquitetural: Aplicação Vibe Coding Padrão vs. Blindada</h2>
-      <p class="matrix-subtitle">Selecione uma das posturas arquiteturais para compreender como as camadas do frontend e da borda respondem a requisições de código e segredos:</p>
-      
-      <div class="matrix-tabs">
-        <button type="button" id="tab-scenario-vuln" class="matrix-tab-btn active vuln" onclick="switchScenario('vuln')">1. Aplicação Vibe Coding Padrão (Vulnerável)</button>
-        <button type="button" id="tab-scenario-hard" class="matrix-tab-btn hard" onclick="switchScenario('hard')">2. Aplicação Blindada (Padrão TAVARDT Zero Trust)</button>
-      </div>
-
-      <div class="diagnostic-card">
-        <div class="posture-header">
-          <div class="posture-status-row">
-            <span class="posture-badge badge-vuln" id="posture-badge">POSTURA PADRÃO: VULNERÁVEL A ENGENHARIA REVERSA &amp; VAZAMENTO DE DADOS</span>
-            <span class="posture-mode-tag" id="posture-mode-tag">Topologia Insegura Sem Sanitização de Bundles</span>
-          </div>
-          <p class="posture-summary" id="posture-summary">Aplicações geradas rapidamente com ferramentas de IA (Cursor, Lovable, v0, Bolt) frequentemente mantêm sourcemaps (.js.map) públicos em produção, expõem credenciais privilegiadas em variáveis de ambiente client-side e operam sobre bancos de dados Supabase/Firebase sem políticas estritas de Row Level Security (RLS).</p>
-        </div>
-
-        <div class="routes-box">
-          <div class="routes-header">
-            <span>Mapeamento de Rotas e Superfícies Críticas</span>
-            <span id="routes-summary-count">4 Rotas Mapeadas</span>
-          </div>
-          <div class="routes-table-wrap">
-            <table class="routes-table">
-              <thead>
-                <tr>
-                  <th>Superfície / Arquivo Alvo</th>
-                  <th>Resposta HTTP</th>
-                  <th>Comportamento da Rota</th>
-                  <th>Postura de Segurança</th>
-                </tr>
-              </thead>
-              <tbody id="routes-tbody">
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="findings-box">
-          <div class="findings-header">
-            <span>Diretrizes e Controles Arquiteturais</span>
-            <span id="findings-count" style="color: #ef4444;">3 Vulnerabilidades Ativas</span>
-          </div>
-          <div class="findings-list" id="findings-list">
-          </div>
-        </div>
-
-        <div class="code-section-intro">
-          <h3 class="code-section-title">Blueprints de Mitigação &amp; Configurações de Servidor</h3>
-          <p class="code-section-subtitle">Selecione o arquivo de configuração para visualizar e copiar as regras defensivas prontas para aplicação imediata:</p>
-        </div>
-
-        <select class="code-select-mobile" id="code-select-mobile" onchange="switchCodeTab(this.value)">
-          <option value="vite">vite.config.ts (Hardening)</option>
-          <option value="next">next.config.js (Headers)</option>
-          <option value="rls">supabase-rls.sql (Políticas)</option>
-          <option value="cloudflare">Cloudflare WAF Rule</option>
-          <option value="cli">audit_vibe_security.py (CLI)</option>
-        </select>
-
-        <div class="code-tabs-nav">
-          <div class="code-tabs-group">
-            <button type="button" class="code-tab active" data-tab="vite" onclick="switchCodeTab('vite')">vite.config.ts (Hardening)</button>
-            <button type="button" class="code-tab" data-tab="next" onclick="switchCodeTab('next')">next.config.js (Headers)</button>
-            <button type="button" class="code-tab" data-tab="rls" onclick="switchCodeTab('rls')">supabase-rls.sql (Políticas)</button>
-            <button type="button" class="code-tab" data-tab="cloudflare" onclick="switchCodeTab('cloudflare')">Cloudflare WAF Rule</button>
-            <button type="button" class="code-tab" data-tab="cli" onclick="switchCodeTab('cli')">audit_vibe_security.py (CLI)</button>
-          </div>
-          <button type="button" class="code-copy-btn" id="btn-copy-code" onclick="copyCode()">Copiar</button>
-        </div>
-
-        <div class="code-display-box">
-          <pre class="code-pre" id="code-box"></pre>
-        </div>
-      </div>
-    </section>
-
-    <section class="aeo-section">
-      <div class="aeo-badge">PADRÃO DE SEGURANÇA DEFENSIVA<br class="mobile-only"> PARA APLICAÇÕES VIBE CODING</div>
-      <h2 class="aeo-title">O que é a Superfície de Risco em Vibe Coding e Aplicações Criadas por IA?</h2>
-      <div class="aeo-content">
-        <p>A ascensão do <strong>Vibe Coding</strong> (criação acelerada de software orientada por prompts em ferramentas como Cursor, Lovable, v0 e Bolt.new) transformou a velocidade de entrega digital. No entanto, assistentes de IA priorizam a viabilidade funcional imediata sobre a arquitetura de segurança perimetral. Como resultado direto, compilações entregues em produção frequentemente arrastam falhas estruturais severas de exposição de segredos e ausência de autenticação granular.</p>
-        
-        <p>O primeiro vetor crítico decorre da confusão entre variáveis públicas e privadas. Ao adicionar chaves de provedores de IA (OpenAI, Anthropic) ou tokens com privilégios administrativos (como o <code>service_role</code> do Supabase) em variáveis com prefixos client-side (ex: <code>VITE_</code> ou <code>NEXT_PUBLIC_</code>), esses dados são embutidos diretamente no código JavaScript estático baixado por todos os visitantes. Em paralelo, a presença de arquivos <code>.js.map</code> públicos viabiliza a descompactação integral do código TypeScript original.</p>
-        
-        <p>A blindagem definitiva para ecossistemas de desenvolvimento com IA exige a imposição de três controles inegociáveis: a desativação estrita de sourcemaps em compilações de produção, a obrigatoriedade de <strong>Row Level Security (RLS)</strong> em 100% das tabelas do banco de dados relacional e a mediação de todas as chamadas a modelos de IA através de rotas de backend (Server Functions) com validação perimetral no Cloudflare WAF.</p>
-      </div>
-
-      <div class="aeo-table-section">
-        <h3 class="aeo-table-title">Matriz Técnica Comparativa: Aplicação Vibe Coding Vulnerável vs. Aplicação Blindada TAVARDT</h3>
-        <div class="comparison-grid">
-          <div class="comp-col vuln">
-            <div class="comp-title">Aplicação Vibe Coding Vulnerável (Risco Crítico de Exposição)</div>
-            <ul class="comp-list">
-              <li><span class="icon-x">&#10006;</span> Sourcemaps de produção (.js.map) gerados e acessíveis publicamente no DocumentRoot.</li>
-              <li><span class="icon-x">&#10006;</span> Chaves de API e tokens service_role prefixados como variáveis públicas no cliente.</li>
-              <li><span class="icon-x">&#10006;</span> Tabelas de banco de dados no Supabase sem Row Level Security (RLS) habilitado.</li>
-              <li><span class="icon-x">&#10006;</span> Falta de cabeçalhos perimetrais Content-Security-Policy e X-Frame-Options.</li>
-            </ul>
-          </div>
-          <div class="comp-col hard">
-            <div class="comp-title">Aplicação Blindada TAVARDT (Defesa em Profundidade e Zero Trust)</div>
-            <ul class="comp-list">
-              <li><span class="icon-check">&#10004;</span> Compilação Vite e Next.js com sourcemap desativado e código sanitizado.</li>
-              <li><span class="icon-check">&#10004;</span> Segredos confinados estritamente no runtime do servidor com rotação automática.</li>
-              <li><span class="icon-check">&#10004;</span> RLS obrigatório em todas as tabelas restringindo consultas ao auth.uid() autenticado.</li>
-              <li><span class="icon-check">&#10004;</span> Borda Cloudflare bloqueando tentativas de acesso a arquivos .env e mapas estáticos.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq-section">
-      <h2 class="faq-title">Perguntas Frequentes sobre Segurança em Vibe Coding &amp; IA</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button type="button" class="faq-btn" onclick="toggleFaq(this)">
-            <span>O que torna aplicações desenvolvidas via Vibe Coding vulneráveis a vazamento de dados?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
+<div class="cli-tags">
+<span class="cli-tag"><strong>Inspeção Determinística:</strong> Bundles, Sourcemaps e Headers</span>
+<span class="cli-tag"><strong>Proteção de Segredos:</strong> Detecta chaves OpenAI, Supabase e AWS</span>
+<span class="cli-tag"><strong>Zero CORS:</strong> Sockets nativos no terminal do desenvolvedor</span>
+</div>
+</div>
+</section>
+<section class="matrix-section">
+<h2 class="matrix-title">Diagnóstico Arquitetural: Aplicação Vibe Coding Padrão vs. Blindada</h2>
+<p class="matrix-subtitle">Selecione uma das posturas arquiteturais para compreender como as camadas do frontend e da borda respondem a requisições de código e segredos:</p>
+<div class="matrix-tabs">
+<button class="matrix-tab-btn active vuln" id="tab-scenario-vuln" onclick="switchScenario('vuln')" type="button">1. Aplicação Vibe Coding Padrão (Vulnerável)</button>
+<button class="matrix-tab-btn hard" id="tab-scenario-hard" onclick="switchScenario('hard')" type="button">2. Aplicação Blindada (Padrão TAVARDT Zero Trust)</button>
+</div>
+<div class="diagnostic-card">
+<div class="posture-header">
+<div class="posture-status-row">
+<span class="posture-badge badge-vuln" id="posture-badge">POSTURA PADRÃO: VULNERÁVEL A ENGENHARIA REVERSA &amp; VAZAMENTO DE DADOS</span>
+<span class="posture-mode-tag" id="posture-mode-tag">Topologia Insegura Sem Sanitização de Bundles</span>
+</div>
+<p class="posture-summary" id="posture-summary">Aplicações geradas rapidamente com ferramentas de IA (Cursor, Lovable, v0, Bolt) frequentemente mantêm sourcemaps (.js.map) públicos em produção, expõem credenciais privilegiadas em variáveis de ambiente client-side e operam sobre bancos de dados Supabase/Firebase sem políticas estritas de Row Level Security (RLS).</p>
+</div>
+<div class="routes-box">
+<div class="routes-header">
+<span>Mapeamento de Rotas e Superfícies Críticas</span>
+<span id="routes-summary-count">4 Rotas Mapeadas</span>
+</div>
+<div class="routes-table-wrap">
+<table class="routes-table">
+<thead>
+<tr>
+<th>Superfície / Arquivo Alvo</th>
+<th>Resposta HTTP</th>
+<th>Comportamento da Rota</th>
+<th>Postura de Segurança</th>
+</tr>
+</thead>
+<tbody id="routes-tbody">
+</tbody>
+</table>
+</div>
+</div>
+<div class="findings-box">
+<div class="findings-header">
+<span>Diretrizes e Controles Arquiteturais</span>
+<span id="findings-count" style="color: #ef4444;">3 Vulnerabilidades Ativas</span>
+</div>
+<div class="findings-list" id="findings-list">
+</div>
+</div>
+<div class="code-section-intro">
+<h3 class="code-section-title">Blueprints de Mitigação &amp; Configurações de Servidor</h3>
+<p class="code-section-subtitle">Selecione o arquivo de configuração para visualizar e copiar as regras defensivas prontas para aplicação imediata:</p>
+</div>
+<select class="code-select-mobile" id="code-select-mobile" onchange="switchCodeTab(this.value)">
+<option value="vite">vite.config.ts (Hardening)</option>
+<option value="next">next.config.js (Headers)</option>
+<option value="rls">supabase-rls.sql (Políticas)</option>
+<option value="cloudflare">Cloudflare WAF Rule</option>
+<option value="cli">audit_vibe_security.py (CLI)</option>
+</select>
+<div class="code-tabs-nav">
+<div class="code-tabs-group">
+<button class="code-tab active" data-tab="vite" onclick="switchCodeTab('vite')" type="button">vite.config.ts (Hardening)</button>
+<button class="code-tab" data-tab="next" onclick="switchCodeTab('next')" type="button">next.config.js (Headers)</button>
+<button class="code-tab" data-tab="rls" onclick="switchCodeTab('rls')" type="button">supabase-rls.sql (Políticas)</button>
+<button class="code-tab" data-tab="cloudflare" onclick="switchCodeTab('cloudflare')" type="button">Cloudflare WAF Rule</button>
+<button class="code-tab" data-tab="cli" onclick="switchCodeTab('cli')" type="button">audit_vibe_security.py (CLI)</button>
+</div>
+<button class="code-copy-btn" id="btn-copy-code" onclick="copyCode()" type="button">Copiar</button>
+</div>
+<div class="code-display-box">
+<pre class="code-pre" id="code-box"></pre>
+</div>
+</div>
+</section>
+<section class="aeo-section">
+<div class="aeo-badge">PADRÃO DE SEGURANÇA DEFENSIVA<br class="mobile-only"/> PARA APLICAÇÕES VIBE CODING</div>
+<h2 class="aeo-title">O que é a Superfície de Risco em Vibe Coding e Aplicações Criadas por IA?</h2>
+<div class="aeo-content">
+<p>A ascensão do <strong>Vibe Coding</strong> (criação acelerada de software orientada por prompts em ferramentas como Cursor, Lovable, v0 e Bolt.new) transformou a velocidade de entrega digital. No entanto, assistentes de IA priorizam a viabilidade funcional imediata sobre a arquitetura de segurança perimetral. Como resultado direto, compilações entregues em produção frequentemente arrastam falhas estruturais severas de exposição de segredos e ausência de autenticação granular.</p>
+<p>O primeiro vetor crítico decorre da confusão entre variáveis públicas e privadas. Ao adicionar chaves de provedores de IA (OpenAI, Anthropic) ou tokens com privilégios administrativos (como o <code>service_role</code> do Supabase) em variáveis com prefixos client-side (ex: <code>VITE_</code> ou <code>NEXT_PUBLIC_</code>), esses dados são embutidos diretamente no código JavaScript estático baixado por todos os visitantes. Em paralelo, a presença de arquivos <code>.js.map</code> públicos viabiliza a descompactação integral do código TypeScript original.</p>
+<p>A blindagem definitiva para ecossistemas de desenvolvimento com IA exige a imposição de três controles inegociáveis: a desativação estrita de sourcemaps em compilações de produção, a obrigatoriedade de <strong>Row Level Security (RLS)</strong> em 100% das tabelas do banco de dados relacional e a mediação de todas as chamadas a modelos de IA através de rotas de backend (Server Functions) com validação perimetral no Cloudflare WAF.</p>
+</div>
+<div class="aeo-table-section">
+<h3 class="aeo-table-title">Matriz Técnica Comparativa: Aplicação Vibe Coding Vulnerável vs. Aplicação Blindada TAVARDT</h3>
+<div class="comparison-grid">
+<div class="comp-col vuln">
+<div class="comp-title">Aplicação Vibe Coding Vulnerável (Risco Crítico de Exposição)</div>
+<ul class="comp-list">
+<li><span class="icon-x">✖</span> Sourcemaps de produção (.js.map) gerados e acessíveis publicamente no DocumentRoot.</li>
+<li><span class="icon-x">✖</span> Chaves de API e tokens service_role prefixados como variáveis públicas no cliente.</li>
+<li><span class="icon-x">✖</span> Tabelas de banco de dados no Supabase sem Row Level Security (RLS) habilitado.</li>
+<li><span class="icon-x">✖</span> Falta de cabeçalhos perimetrais Content-Security-Policy e X-Frame-Options.</li>
+</ul>
+</div>
+<div class="comp-col hard">
+<div class="comp-title">Aplicação Blindada TAVARDT (Defesa em Profundidade e Zero Trust)</div>
+<ul class="comp-list">
+<li><span class="icon-check">✔</span> Compilação Vite e Next.js com sourcemap desativado e código sanitizado.</li>
+<li><span class="icon-check">✔</span> Segredos confinados estritamente no runtime do servidor com rotação automática.</li>
+<li><span class="icon-check">✔</span> RLS obrigatório em todas as tabelas restringindo consultas ao auth.uid() autenticado.</li>
+<li><span class="icon-check">✔</span> Borda Cloudflare bloqueando tentativas de acesso a arquivos .env e mapas estáticos.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="faq-section">
+<h2 class="faq-title">Perguntas Frequentes sobre Segurança em Vibe Coding &amp; IA</h2>
+<div class="faq-list">
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>O que torna aplicações desenvolvidas via Vibe Coding vulneráveis a vazamento de dados?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
             Ferramentas de geração acelerada frequentemente embutem chaves de API com permissões elevadas em variáveis de ambiente client-side (como NEXT_PUBLIC_ ou VITE_) e compilam sourcemaps (.js.map) em produção sem políticas de Row Level Security (RLS) ativas no banco de dados relacional.
           </div>
-        </div>
-
-        <div class="faq-item">
-          <button type="button" class="faq-btn" onclick="toggleFaq(this)">
-            <span>Por que a exposição de arquivos .js.map em produção é um risco de segurança?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>Por que a exposição de arquivos .js.map em produção é um risco de segurança?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
             Arquivos .js.map contêm a descompilação exata do código-fonte TypeScript original, incluindo nomes de variáveis internas, rotas de APIs não documentadas, comentários e parâmetros estruturais de chamadas para modelos de IA.
           </div>
-        </div>
-
-        <div class="faq-item">
-          <button type="button" class="faq-btn" onclick="toggleFaq(this)">
-            <span>Como evitar que chaves secretas de IA sejam compiladas nos bundles JavaScript?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>Como evitar que chaves secretas de IA sejam compiladas nos bundles JavaScript?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
             Todas as chamadas para APIs de IA (OpenAI, Anthropic, Gemini) devem residir exclusivamente em Server Components ou rotas de API no backend (ex: /api/chat). Nenhuma chave privada pode conter os prefixos NEXT_PUBLIC_ ou VITE_.
           </div>
-        </div>
-
-        <div class="faq-item">
-          <button type="button" class="faq-btn" onclick="toggleFaq(this)">
-            <span>Qual é a função do Row Level Security (RLS) no Supabase ou PostgreSQL?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
-            O RLS garante no próprio motor do banco de dados que um usuário autenticado só possa consultar ou modificar linhas que pertençam diretamente ao seu UID (auth.uid() = id), impedindo que clientes maliciosos consultem dados de terceiros via API REST pública.
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>Qual é a função do Row Level Security (RLS) no Supabase ou PostgreSQL?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
+            O RLS garante no próprio motor do banco de dados que um utilizador autenticado só possa consultar ou modificar linhas que pertençam diretamente ao seu UID (auth.uid() = id), impedindo que clientes maliciosos consultem dados de terceiros via API REST pública.
           </div>
-        </div>
-
-        <div class="faq-item">
-          <button type="button" class="faq-btn" onclick="toggleFaq(this)">
-            <span>Como inspecionar a segurança da minha aplicação Vibe Coding de forma determinística?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>Como inspecionar a segurança da minha aplicação Vibe Coding de forma determinística?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
             A auditoria deve ser realizada através de inspeção direta de sockets com o script audit_vibe_security.py diretamente no seu terminal ou pipeline de CI/CD, auditando sourcemaps, headers e padrões de chaves em bundles reais sem restrições de sandbox de navegador.
           </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="tavardt-footer">
-    <div class="footer-links">
-      <a href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">TAVARDT Portugal</a>
-      <a href="https://tools.tavardt.com/pt/" rel="noopener" target="_blank">Ferramentas de Cibersegurança</a>
-      <a href="https://ag.tavardt.com/pt/ciberseguranca/" rel="noopener" target="_blank">Consultoria Zero Trust</a>
-      <a href="https://ag.tavardt.com/pt/contacto/" rel="noopener" target="_blank">Contacto Corporativo</a>
-    </div>
-    <p>&copy; 2026 TAVARDT. Todos os direitos reservados. Arquitetura Defensiva &amp; Hardening Corporativo.</p>
-  </footer>
-
-  <script>
+</div>
+</div>
+</section>
+</main>
+<footer class="tavardt-footer">
+<div class="footer-links">
+<a href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">TAVARDT Portugal</a>
+<a href="https://tools.tavardt.com/pt/" rel="noopener" target="_blank">Ferramentas de Cibersegurança</a>
+<a href="https://ag.tavardt.com/pt/ciberseguranca/" rel="noopener" target="_blank">Consultoria Zero Trust</a>
+<a href="https://ag.tavardt.com/pt/contacto/" rel="noopener" target="_blank">Contacto Corporativo</a>
+</div>
+<p>© 2026 TAVARDT. Todos os direitos reservados. Arquitetura Defensiva &amp; Hardening Corporativo.</p>
+</footer>
+<script>
     let currentScenario = 'vuln';
     let activeTab = 'vite';
 
@@ -1023,7 +992,7 @@ ALTER TABLE public.projects ENABLE ROW LEVEL SECURITY;
 /* 2. Revogar permissões cegas da role anon pública */
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM anon;
 
-/* 3. Criar política restritiva: Usuário só consulta o seu próprio perfil */
+/* 3. Criar política restritiva: Utilizador só consulta o seu próprio perfil */
 CREATE POLICY "Profiles acessíveis apenas pelo dono"
 ON public.profiles
 FOR SELECT
@@ -1124,12 +1093,12 @@ if __name__ == "__main__":
       const data = scenariosData[scen];
       const badge = document.getElementById('posture-badge');
       badge.className = 'posture-badge ' + data.badgeClass;
-      badge.innerText = data.badgeText;
-      document.getElementById('posture-mode-tag').innerText = data.modeTag;
-      document.getElementById('posture-summary').innerText = data.summary;
+      badge.textContent = data.badgeText;
+      document.getElementById('posture-mode-tag').textContent = data.modeTag;
+      document.getElementById('posture-summary').textContent = data.summary;
 
       const findingsCount = document.getElementById('findings-count');
-      findingsCount.innerText = data.findingsCount;
+      findingsCount.textContent = data.findingsCount;
       findingsCount.style.color = data.findingsCountColor;
 
       const tbody = document.getElementById('routes-tbody');
@@ -1145,7 +1114,7 @@ if __name__ == "__main__":
       data.findings.forEach(f => {
         const item = document.createElement('div');
         item.className = 'finding-item ' + f.type;
-        item.innerText = (f.type === 'ok' ? '[CONFORME] ' : '[ALERTA CRÍTICO] ') + f.text;
+        item.textContent = (f.type === 'ok' ? '[CONFORME] ' : '[ALERTA CRÍTICO] ') + f.text;
         fList.appendChild(item);
       });
     }
@@ -1159,28 +1128,28 @@ if __name__ == "__main__":
       if (sel) sel.value = tab;
       const box = document.getElementById('code-box');
       if (box && codeTemplates[tab]) {
-        box.innerText = codeTemplates[tab];
+        box.textContent = codeTemplates[tab];
       }
     }
 
     function copyCode() {
       const code = codeTemplates[activeTab];
       if (!code) return;
-      navigator.clipboard.writeText(code).then(() => {
+      if (navigator.clipboard) navigator.clipboard.writeText(code).catch(() => {}).then(() => {
         const btn = document.getElementById('btn-copy-code');
         const orig = btn.innerText;
-        btn.innerText = 'Copiado!';
-        setTimeout(() => { btn.innerText = orig; }, 2000);
+        btn.textContent = 'Copiado!';
+        setTimeout(() => { btn.textContent = orig; }, 2000);
       });
     }
 
     function copyCliCommand() {
       const code = document.getElementById('cli-terminal-code').innerText;
-      navigator.clipboard.writeText(code).then(() => {
+      if (navigator.clipboard) navigator.clipboard.writeText(code).catch(() => {}).then(() => {
         const btn = document.getElementById('btn-copy-cli');
         const orig = btn.innerText;
-        btn.innerText = 'Copiado!';
-        setTimeout(() => { btn.innerText = orig; }, 2000);
+        btn.textContent = 'Copiado!';
+        setTimeout(() => { btn.textContent = orig; }, 2000);
       });
     }
 
