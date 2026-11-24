@@ -1,4 +1,4 @@
-# Vibe Coding Security & AI Architecture Auditor
+# Auditor de Segurança Vibe Coding e Arquitetura de IA
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-5b3cf5.svg)](https://tavardt-portugal.github.io/vibe-coding-security-scanner/)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
@@ -55,3 +55,7 @@ O repositório fornece configurações homologadas para proteger o ecossistema d
 * **Ferramentas:** [Central de Ferramentas](https://tools.tavardt.com/pt/)
 
 &copy; 2026 TAVARDT. Todos os direitos reservados.
+
+***
+
+© 2026 TAVARDT. Todos os direitos reservados.
