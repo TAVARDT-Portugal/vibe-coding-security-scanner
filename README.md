@@ -1,59 +1,58 @@
-# Auditor de Segurança Vibe Coding e Arquitetura de IA
+# Scanner de Segurança e Auditoria de Código Gerado por IA
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-5b3cf5.svg)](https://tavardt-portugal.github.io/vibe-coding-security-scanner/)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![Security](https://img.shields.io/badge/Security-AI%20Architecture-blue.svg)](https://tavardt-portugal.github.io/vibe-coding-security-scanner/)
+[![Software Supply Chain](https://img.shields.io/badge/Security-Supply%20Chain-red.svg)](https://ag.tavardt.com/pt/)
+[![SLSA Level](https://img.shields.io/badge/SLSA-Level%203%20Ready-blue.svg)](https://slsa.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Guia corporativo de arquitetura defensiva, mitigação de vazamento de credenciais e ferramental CLI determinístico para inspeção de segurança em aplicações desenvolvidas com ferramentas de IA (Vibe Coding).
+**Deteção de Dependências Fantasma, Alucinações de Pacotes e Vulnerabilidades em Fluxos de Desenvolvimento Assistido por IA**
 
-## Superfície de Risco em Aplicações Criadas por IA
-
-O desenvolvimento acelerado através de IA (Cursor, Lovable, v0, Bolt) introduz três vulnerabilidades estruturais recorrentes:
-
-1. **Vazamento de Sourcemaps (.js.map):** Compilações de produção que mantêm mapas de código ativos viabilizam a descompactação integral da lógica de negócio e modelos de dados originais em TypeScript.
-2. **Exposição de Chaves de IA em Bundles Client-Side:** Chaves da OpenAI, Anthropic ou tokens `service_role` do Supabase prefixadas com `NEXT_PUBLIC_` ou `VITE_` são baixadas por qualquer visitante no navegador.
-3. **Ausência de Row Level Security (RLS):** Bancos relacionais acessados via clientes REST/GraphQL sem políticas de RLS ativas permitem a extração não autorizada de registros de múltiplos usuários.
+Desenvolvido e mantido pela divisão de análise estática e segurança aplicacional da TAVARDT Portugal.
 
 ***
 
-## Ferramenta Oficial de Auditoria CLI
+## Portais e Demonstração Online
 
-Para contornar restrições de sandbox de navegadores e políticas de CORS, a TAVARDT disponibiliza um utilitário em Python para auditoria direta via terminal ou pipeline de CI/CD:
+Aceda à ferramenta interativa oficial e aos canais soberanos da TAVARDT:
+
+* **Aplicação Web Oficial no GitHub Pages**: [https://tavardt-portugal.github.io/vibe-coding-security-scanner/](https://tavardt-portugal.github.io/vibe-coding-security-scanner/)
+* **Portal Institucional**: [https://ag.tavardt.com/pt/](https://ag.tavardt.com/pt/)
+* **Central de Ferramentas**: [https://tools.tavardt.com/pt/](https://tools.tavardt.com/pt/)
+
+***
+
+## Blueprints Técnicos e Recursos Disponíveis
+
+1. **Aplicação Web Interativa**: Diagnóstico determinístico, cálculo de postura defensiva e recomendações imediatas no navegador.
+2. **Utilitário CLI Local**: Script Python determinístico executado diretamente no ambiente de produção para auditoria offline.
+3. **Especificações de Segurança**: Manifestos e configurações de hardening em conformidade com as normas internacionais.
+
+***
+
+## Uso do Utilitário CLI Determinístico
+
+Para executar a inspeção técnica no ambiente local:
 
 ```bash
-# 1. Obter o script oficial
-curl -sO https://raw.githubusercontent.com/TAVARDT-Portugal/vibe-coding-security-scanner/main/audit_vibe_security.py
-
-# 2. Executar auditoria direta contra a aplicacao
-python audit_vibe_security.py https://sua-aplicacao.com
+git clone https://github.com/TAVARDT-Portugal/vibe-coding-security-scanner.git
+cd vibe-coding-security-scanner
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 scanner.py -json
 ```
 
-### Capacidades de Inspeção do Utilitário CLI
+***
 
-* **Auditoria de Sourcemaps:** Varredura automática em rotas convencionais de build para detectar arquivos `.js.map` expostos publicamente.
-* **Inspeção de Cabeçalhos HTTP:** Validação rigorosa de políticas `Content-Security-Policy`, `Strict-Transport-Security`, `X-Content-Type-Options` e `X-Frame-Options`.
-* **Detecção de Segredos Compilados:** Expressões regulares avançadas para identificar tokens de provedores de IA e credenciais administrativas em bundles estáticos.
+## Governança e Conformidade
+
+* **Organização**: TAVARDT-Portugal
+* **Jurisdição**: Portugal
+* **Padrões de Referência**: Normas e frameworks técnicos auditados em estrita observância das regras de soberania.
+
+Desenvolvido pela Divisão de Cibersegurança e Infraestrutura da TAVARDT Portugal. Todos os direitos reservados.
 
 ***
 
-## Blueprints de Mitigação Defensiva
-
-O repositório fornece configurações homologadas para proteger o ecossistema da aplicação:
-
-* **Vite (`vite.config.ts`):** Desativação estrita de sourcemaps de produção e sanitização de nomes de arquivos.
-* **Next.js (`next.config.js`):** Desativação de `productionBrowserSourceMaps` e imposição de cabeçalhos de segurança perimetral.
-* **Supabase SQL (`supabase-rls.sql`):** Ativação mandatória de `ROW LEVEL SECURITY` em todas as tabelas e revogação de acessos indiscriminados da role `anon`.
-* **Cloudflare WAF:** Regras perimetrais de bloqueio imediato para requisições direcionadas a `.js.map`, `.env` e `.git`.
-
-***
-
-## Repositório & Documentação Oficial
-
-* **Página Oficial:** [https://tavardt-portugal.github.io/vibe-coding-security-scanner/](https://tavardt-portugal.github.io/vibe-coding-security-scanner/)
-* **Portal TAVARDT:** [Portal Institucional](https://ag.tavardt.com/pt/)
-* **Ferramentas:** [Central de Ferramentas](https://tools.tavardt.com/pt/)
-
-***
-
-© 2026 TAVARDT. Todos os direitos reservados.
+© 2026 TAVARDT Portugal. Todos os direitos reservados. Soberania e Defesa de Infraestrutura.
